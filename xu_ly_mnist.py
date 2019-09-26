@@ -36,30 +36,23 @@ X_test, y_test = load_mnist('Data/mnist', 't10k')
 # plt.show()
 
 # use kmeans
-kmeans = KMeans(n_clusters=10).fit(X_train, y_train)
-y_pred = kmeans.predict(X_test)
-centers = kmeans.cluster_centers_
-print('y_pred: ', y_pred[:10])
-print('y_test: ', y_test[:10])
+# kmeans = KMeans(n_clusters=10).fit(X_train, y_train)
+# y_pred = kmeans.predict(X_test)
+# centers = kmeans.cluster_centers_
+# print('y_pred: ', y_pred[:10])
+# print('y_test: ', y_test[:10])
 
 # print('ti le: ', accuracy_score(y_test, y_pred)*100)
 
 # show center and cluster
-rows = cols = 10
-fig = plt.figure(figsize=(10, 10))
-for i in range(centers.shape[0]):
-    img = centers[i].reshape(28, 28)
-    fig.add_subplot(rows, cols, i+1)
-    plt.imshow(img)
-    plt.axis('off')
-
-    # show cluster
-    # for j in range(1, rows*cols+1):
-    #     img1 = X_train[centers == i, :].reshape(28, 28)
-    #     fig.add_subplot(rows, cols, j+1)
-    #     fig.imshow(img1)
-    #     plt.axis('off')
-plt.show()
+# rows = cols = 10
+# fig = plt.figure(figsize=(10, 10))
+# for i in range(centers.shape[0]):
+#     img = centers[i].reshape(28, 28)
+#     fig.add_subplot(rows, cols, i+1)
+#     plt.imshow(img)
+#     plt.axis('off')
+# plt.show()
 
 # user LinerRegression
 # regr = LinearRegression(fit_intercept=False).fit(X_train, y_train)

@@ -3,7 +3,6 @@ import numpy as np
 def numerical_grad(w, cost):
     eps = 1e-4
     g = np.asarray(np.zeros_like(w))
-    # g = np.zeros_like(w)
     for i in range(len(w)):
         w_p = w.copy()
         w_n = w.copy()

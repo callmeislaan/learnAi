@@ -60,9 +60,9 @@ def grad(w):
 
 def cost(w):
     N = Xbar.shape[0]
-    return 0.5/N * np.linspace.norm(y - Xbar.dot(w), 2)**2
+    return 0.5/N * np.linalg.norm(y - Xbar.dot(w), 2)**2
 
-# print(check_grad.check_grad(w, cost, grad))
+print(check_grad.check_grad(np.random.rand(Xbar.shape[1], 1), cost, grad))
 def myGD(w_init, grad, eta):
     w = [w_init]
     for i in range(100):

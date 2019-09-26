@@ -4,21 +4,22 @@ np.random.seed(2)
 
 X = np.random.rand(1000, 1)
 y = 4 + 3*X + 0.2*np.random.randn(1000, 1)
+print(y.shape)
 
 one = np.ones((X.shape[0], 1))
 
 Xbar = np.concatenate((one, X), axis = 1)
 
 def cost(w):
-    N = w.shape[0]
+    N = Xbar.shape[0]
     return 0.5/N*np.linalg.norm(y - Xbar.dot(w), 2)**2
 
 def grad(w):
-    N = w.shape[0]
+    N = Xbar.shape[0]
     return 1/N*Xbar.T.dot(Xbar.dot(w) - y)
 
-# import check_grad
-# print(check_grad.check_grad(np.random.rand(2, 1), cost, grad))
+import check_grad
+print(check_grad.check_grad(np.random.rand(Xbar.shape[1], 1), cost, grad))
 
 def GD_NAG(w_init, grad, eta, gamma):
     w = [w_init]
